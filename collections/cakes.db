@@ -1,5 +1,3 @@
-{"name":"SupaCake25","comment":"Very nice cake mmmm","id":"5","imageUrl":"http://localhost:8000/photo/5","fileExtension":"png","outputFile":"/../photos/SupaCake25.png","_id":"5drdjnXrwEkyTRNh"}
-{"name":"Other very nice cake","comment":"Very nice cake mmmm","id":"3","imageUrl":"http://localhost:8000/photo/3","fileExtension":"png","outputFile":"/../photos/Otherverynicecake.png","_id":"LV5jNWogvejqypno"}
-{"name":"SupaCake","comment":"Very nice cake mmmm","id":"4","imageUrl":"http://localhost:8000/photo/4","fileExtension":"png","outputFile":"/../photos/SupaCake.png","_id":"jHGcbNpieaMjoJJL"}
+{"name":"RedCake","comment":"Very nice cake mmmm","id":"3","imageUrl":"http://localhost:8000/photo/3","fileExtension":"jpeg","outputFile":"/../photos/3.jpeg","_id":"krjwRiabN707qs8x"}
 {"$$indexCreated":{"fieldName":"name","unique":true,"sparse":false}}
 {"$$indexCreated":{"fieldName":"id","unique":true,"sparse":false}}

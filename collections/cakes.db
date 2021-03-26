@@ -1,5 +1,5 @@
-{"name":"other cake1311","comment":"Very nice cake mmmm","imageUrl":"../photos/othercake1311.png","_id":"11Kx3d6AKA0fhE0d"}
-{"name":"other cake131","comment":"Very nice cake mmmm","imageUrl":"../photos/othercake131.png","_id":"6amTU6Fj9Y1Iw8PR"}
-{"name":"SupaCake","comment":"Very nice cake mmmm","imageUrl":"http://localhost:8000/photos/SupaCake.png","_id":"DJahN3PX0Kyjop33"}
-{"name":"other cake13111","comment":"Very nice cake mmmm","imageUrl":"../photos/othercake13111.png","_id":"NlNrbtdK48vTE8xx"}
+{"name":"SupaCake25","comment":"Very nice cake mmmm","id":"5","imageUrl":"http://localhost:8000/photo/5","fileExtension":"png","outputFile":"/../photos/SupaCake25.png","_id":"5drdjnXrwEkyTRNh"}
+{"name":"Other very nice cake","comment":"Very nice cake mmmm","id":"3","imageUrl":"http://localhost:8000/photo/3","fileExtension":"png","outputFile":"/../photos/Otherverynicecake.png","_id":"LV5jNWogvejqypno"}
+{"name":"SupaCake","comment":"Very nice cake mmmm","id":"4","imageUrl":"http://localhost:8000/photo/4","fileExtension":"png","outputFile":"/../photos/SupaCake.png","_id":"jHGcbNpieaMjoJJL"}
 {"$$indexCreated":{"fieldName":"name","unique":true,"sparse":false}}
+{"$$indexCreated":{"fieldName":"id","unique":true,"sparse":false}}

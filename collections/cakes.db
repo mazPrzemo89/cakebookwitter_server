@@ -1,6 +1,0 @@
-{"name":"Ok","comment":"Comment","id":"5","yumFactor":"5","imageUrl":"http://localhost:8000/photo/5","fileExtension":"jpeg","outputFile":"/../photos/5.jpeg","_id":"7bmYoxbG7kClkuiF"}
-{"name":"Siema","comment":"asdasdasd","id":"233","yumFactor":"5","imageUrl":"http://localhost:8000/photo/233","fileExtension":"jpeg","outputFile":"/../photos/233.jpeg","_id":"fVbXZGhkgHzCZcx7"}
-{"name":"Ortopeda","comment":"asdasdasdasdadasads","id":"789","yumFactor":"5","imageUrl":"http://localhost:8000/photo/789","fileExtension":"jpeg","outputFile":"/../photos/789.jpeg","_id":"q3jkhEvc13GMHkhw"}
-{"name":"SuperCake","comment":"asdadasdasdasdddddddddddddddddddddddddd","id":"100","yumFactor":"5","imageUrl":"http://localhost:8000/photo/100","fileExtension":"jpeg","outputFile":"/../photos/100.jpeg","_id":"x9xcyX8NSPItpC7l"}
-{"$$indexCreated":{"fieldName":"name","unique":true,"sparse":false}}
-{"$$indexCreated":{"fieldName":"id","unique":true,"sparse":false}}

@@ -147,7 +147,7 @@ exports.cakeById = (req, res, next, id) => {
 function insertCake(newCake, res) {
   dbpointer.insert(newCake, function (err, newDoc) {
     if (err) {
-      return res.status(400).json(err.message)
+      return res.status(400).json({ error: 'Id already exists' })
     }
     return res.status(201).json('Photo added')
   })

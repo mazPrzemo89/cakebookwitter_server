@@ -14,7 +14,8 @@
     "express": "^4.17.1",
     "formidable": "^1.2.2",
     "fs-extra": "^9.1.0",
-    "nedb": "^1.8.0"
+    "nedb": "^1.8.0",
+    "sharp": "^0.27.2"
   },
   "devDependencies": {
     "morgan": "^1.10.0",

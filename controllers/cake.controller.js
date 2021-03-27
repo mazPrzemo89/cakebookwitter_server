@@ -1,4 +1,5 @@
 const fse = require('fs-extra')
+const sharp = require('sharp')
 const formidable = require('formidable')
 const { dbpointer } = require('../datastore')
 
@@ -64,7 +65,16 @@ exports.addCake = (req, res) => {
     cake.yumFactor = fields.yumFactor
 
     let photoBuffer = fse.readFileSync(files.photo.path)
+    let photoResized
     let fileExtension = files.photo.type.slice(6)
+
+    await sharp(photoBuffer)
+      .resize({ width: 272, height: 272, fit: 'fill' })
+      .toBuffer()
+      .then((data) => {
+        photoResized = data
+      })
+      .catch((err) => {})
 
     let imageUrl = `http://${req.get('Host')}/photo/${cake.id}`
     cake.imageUrl = imageUrl
@@ -73,7 +83,7 @@ exports.addCake = (req, res) => {
 
     fse.outputFileSync(
       __dirname + `/../photos/${cake.id}.${fileExtension}`,
-      photoBuffer,
+      photoResized,
     )
 
     insertCake(cake, res)

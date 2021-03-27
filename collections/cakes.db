@@ -1,0 +1,3 @@
+{"$$indexCreated":{"fieldName":"name","unique":true,"sparse":false}}
+{"$$indexCreated":{"fieldName":"id","unique":true,"sparse":false}}
+{"name":"Red Velvet Cake","comment":"Cake is a form of sweet food made from flour, sugar, and other ingredients, that is usually baked. In their oldest forms, cakes were modifications of bread, but cakes now Cake is a form of sweet food ","id":"101","yumFactor":"4","imageUrl":"http://localhost:8000/photo/101","fileExtension":"jpeg","outputFile":"/../photos/101.jpeg","_id":"m7EVKX5Z4j6j68yn"}

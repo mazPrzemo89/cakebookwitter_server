@@ -1,11 +1,15 @@
 const express = require('express')
+const router = express.Router()
+
 const {
   addCake,
   deleteCake,
   getCakeData,
+  getAllCakes,
   cakeById,
 } = require('../controllers/cake.controller')
-const router = express.Router()
+
+router.get('/all', getAllCakes)
 router.get('/:cakeId', getCakeData)
 router.post('/', addCake)
 router.delete('/delete/:cakeId', deleteCake)

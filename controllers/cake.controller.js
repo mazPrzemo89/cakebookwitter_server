@@ -1,6 +1,6 @@
 const fse = require('fs-extra')
 const formidable = require('formidable')
-const { dbopinter } = require('../datastore')
+const { dbpointer } = require('../datastore')
 
 exports.addCake = (req, res) => {
   let form = new formidable.IncomingForm()
@@ -12,16 +12,9 @@ exports.addCake = (req, res) => {
         error: 'Cake could not be uploaded',
       })
     }
-
-    if (!fields.comment) {
+    if (!fields.comment && !fields.name && !fields.id) {
       return res.status(400).json({
-        error: 'Please write a comment about your cake.',
-      })
-    }
-
-    if (fields.comment.length > 200) {
-      return res.status(400).json({
-        error: 'Your comment cannot be longer than 200 characters.',
+        error: 'Please fill all the fields.',
       })
     }
 
@@ -33,6 +26,17 @@ exports.addCake = (req, res) => {
     if (fields.name.length > 20) {
       return res.status(400).json({
         error: 'Your cake name cannot be longer than 20 characters.',
+      })
+    }
+    if (!fields.comment) {
+      return res.status(400).json({
+        error: 'Please write a comment about your cake.',
+      })
+    }
+
+    if (fields.comment.length > 200) {
+      return res.status(400).json({
+        error: 'Your comment cannot be longer than 200 characters.',
       })
     }
 
@@ -57,6 +61,7 @@ exports.addCake = (req, res) => {
     cake.name = fields.name
     cake.comment = fields.comment
     cake.id = fields.id
+    cake.yumFactor = fields.yumFactor
 
     let photoBuffer = fse.readFileSync(files.photo.path)
     let fileExtension = files.photo.type.slice(6)
@@ -76,13 +81,14 @@ exports.addCake = (req, res) => {
 }
 
 exports.deleteCake = (req, res) => {
-  dbopinter.remove({ id: req.cake.id }, {}, function (err, numRemoved) {
+  console.log('FROM DELETE CAKE------', req.cake.id)
+  dbpointer.remove({ id: req.cake.id }, {}, function (err, numRemoved) {
     if (err) {
       return res.status(400).json(err.message)
     }
   })
 
-  dbopinter.persistence.compactDatafile()
+  dbpointer.persistence.compactDatafile()
 
   let path = __dirname + `/../photos/${req.cake.id}.${req.cake.fileExtension}`
 
@@ -94,7 +100,21 @@ exports.deleteCake = (req, res) => {
   res.status(200).json('Deleted')
 }
 
+exports.getAllCakes = (req, res) => {
+  dbpointer.find(
+    {},
+    { name: 1, comment: 1, yumFactor: 1, id: 1, imageUrl: 1, _id: 0 },
+    function (err, docs) {
+      if (err) {
+        res.status(400).json(err.message)
+      }
+      return res.status(200).json(docs)
+    },
+  )
+}
+
 exports.getCakeData = (req, res) => {
+  let cake = {}
   if (!req.cake) {
     res.status(404).json('No cake found')
   }
@@ -102,19 +122,20 @@ exports.getCakeData = (req, res) => {
 }
 
 exports.cakeById = (req, res, next, id) => {
-  dbopinter.find({ id: id }, function (err, docs) {
+  dbpointer.find({ id: id }, function (err, docs) {
     if (err) {
       return res.status(400).json({
         error: 'Photo not found',
       })
     }
     req.cake = docs[0]
+
     next()
   })
 }
 
 function insertCake(newCake, res) {
-  dbopinter.insert(newCake, function (err, newDoc) {
+  dbpointer.insert(newCake, function (err, newDoc) {
     if (err) {
       return res.status(400).json(err.message)
     }

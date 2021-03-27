@@ -7,4 +7,4 @@ const db = new Datastore({
 db.ensureIndex({ fieldName: 'name', unique: true }, function (err) {})
 db.ensureIndex({ fieldName: 'id', unique: true }, function (err) {})
 
-exports.dbopinter = db
+exports.dbpointer = db

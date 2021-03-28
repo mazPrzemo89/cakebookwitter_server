@@ -37,7 +37,7 @@ exports.addCake = (req, res) => {
 
     if (fields.comment.length > 200) {
       return res.status(400).json({
-        error: 'Your comment cannot be longer than 200 characters.',
+        error: `Your comment cannot be longer than 200 characters. You commen`,
       })
     }
 
@@ -91,7 +91,6 @@ exports.addCake = (req, res) => {
 }
 
 exports.deleteCake = (req, res) => {
-  console.log('FROM DELETE CAKE------', req.cake.id)
   dbpointer.remove({ id: req.cake.id }, {}, function (err, numRemoved) {
     if (err) {
       return res.status(400).json(err.message)
@@ -147,12 +146,9 @@ exports.cakeById = (req, res, next, id) => {
 function insertCake(newCake, res) {
   dbpointer.insert(newCake, function (err, newDoc) {
     if (err) {
-      return res
-        .status(400)
-        .json({
-          error:
-            'Id already exists. Please refresh your browser and try again.',
-        })
+      return res.status(400).json({
+        error: 'Id already exists. Please refresh your browser and try again.',
+      })
     }
     return res.status(201).json('Photo added')
   })

@@ -1,4 +1,2 @@
 {"$$indexCreated":{"fieldName":"name","unique":true,"sparse":false}}
 {"$$indexCreated":{"fieldName":"id","unique":true,"sparse":false}}
-{"name":"asdasd","comment":"asdasda","id":"165869892113","yumFactor":"5","imageUrl":"http://localhost:8000/photo/165869892113","fileExtension":"jpeg","outputFile":"/../photos/165869892113.jpeg","_id":"gJwafENZvEbKnGal"}
-{"name":"asdad","comment":"asdasd","id":"795346588944","yumFactor":"5","imageUrl":"http://localhost:8000/photo/795346588944","fileExtension":"jpeg","outputFile":"/../photos/795346588944.jpeg","_id":"j4PerEmbY0Uld3lu"}

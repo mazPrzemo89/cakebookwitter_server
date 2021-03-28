@@ -41,9 +41,9 @@ exports.addCake = (req, res) => {
       })
     }
 
-    if (!fields.id) {
+    if (!fields.id || fields.id < 0) {
       return res.status(400).json({
-        error: 'Please provide an id.',
+        error: 'Please provide a valid id.',
       })
     }
 
@@ -147,7 +147,12 @@ exports.cakeById = (req, res, next, id) => {
 function insertCake(newCake, res) {
   dbpointer.insert(newCake, function (err, newDoc) {
     if (err) {
-      return res.status(400).json({ error: 'Id already exists' })
+      return res
+        .status(400)
+        .json({
+          error:
+            'Id already exists. Please refresh your browser and try again.',
+        })
     }
     return res.status(201).json('Photo added')
   })
